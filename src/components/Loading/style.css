@@ -1,0 +1,13 @@
+.container {
+  position: absolute;
+  background-color: lightcoral;
+  top: 10px;
+  width: 100%;
+  z-index: 20;
+}
+
+.loader {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
