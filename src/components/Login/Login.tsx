@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Formik, FormikErrors } from 'formik';
 import { useDispatch } from 'react-redux';
-import { LoginLogoutAction } from '../../redux/Actions/actions';
+import { Loading, LoginLogoutAction } from '../../redux/Actions/actions';
 import { ButtonSend, Container, Input, Error, AppName } from './Style';
-import Loading from '../Loading/Loading';
 
 interface InitialValues {
   username: string;
@@ -34,22 +33,22 @@ const validate = (values: InitialValues) => {
 const Login = () => {
   const dispatch = useDispatch();
   const [err, setErr] = useState('');
-  const [load, setLoad] = useState(true);
 
   const handleSubmit = (form: InitialValues) => {
-    setLoad(true);
-    if (form.username !== 'areyesarean' && form.password !== 'asd123') {
-      setErr('Usuario o contraseña incorrectos');
-      setLoad(false);
-    } else {
-      dispatch(LoginLogoutAction(true));
-      setLoad(false);
-    }
+    dispatch(Loading(true));
+    setTimeout(() => {
+      if (form.username !== 'areyesarean' && form.password !== 'asd123') {
+        setErr('Usuario o contraseña incorrectos');
+        dispatch(Loading(false));
+      } else {
+        dispatch(Loading(false));
+        dispatch(LoginLogoutAction(true));
+      }
+    }, 4000);
   };
 
   return (
     <div>
-      {/* {load && <Loading />} */}
       <Container>
         <AppName>Home Cloud</AppName>
         {err && <Error style={{ color: '#FF5252' }}>{err}</Error>}

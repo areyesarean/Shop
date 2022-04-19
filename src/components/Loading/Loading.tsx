@@ -3,7 +3,8 @@ import './style.css';
 const Loading = () => {
   return (
     <div className="container">
-      <div className="loader">Cargando...</div>
+      <div className="spiner"></div>
+      <div style={{textAlign: 'center'}}>Cargando...</div>
     </div>
   );
 };
