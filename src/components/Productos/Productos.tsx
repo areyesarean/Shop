@@ -7,7 +7,11 @@ const Productos = () => {
 
   return (
     <div>
-      <h1>Productos</h1>
+      <h1
+        style={{ fontFamily: 'Dank Mono', textAlign: 'center', color: 'white' }}
+      >
+        Productos
+      </h1>
       <div className="flex-container">
         {products.map((prod: any, index: number) => (
           <Producto key={index} prod={prod} />

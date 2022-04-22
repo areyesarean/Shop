@@ -19,13 +19,13 @@ const Home = () => {
 
   return (
     <div>
-      Home: {isLogin ? 'true' : 'false'}
+      {/* Home: {isLogin ? 'true' : 'false'}
       <button onClick={handleClickLogout}>Logout</button>
       <button onClick={handleClickCargando}>
         Carga ndo: {loading ? 'true' : 'false'}
       </button>
       <Link to={PRODUCTOS}>Productos</Link>
-      <Link to={PRODUCTO}>Producto</Link>
+      <Link to={PRODUCTO}>Producto</Link> */}
       <Outlet />
     </div>
   );

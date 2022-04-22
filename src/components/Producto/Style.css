@@ -4,11 +4,16 @@
   height: 300px;
   margin: 10px;
   border-radius: 10px;
-  /* background-color: rgb(43, 6, 3); */
-  /* box-shadow: 5px 5px 10px rgb(61, 60, 60); */
+  /* border: 1px solid rgb(202, 202, 202); */
   padding: 10px;
   color: white;
+  font-family: "Dank Mono";
 }
+
+.yellow{
+  background-color: rgb(224, 144, 24);
+}
+
 
 .container-info{
   text-align: center;
@@ -28,4 +33,14 @@ p{
 
 .imgFood{
   width: 100%;
+}
+
+.badge{
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  right: 1px;
+  text-align: center;
+  color: white;
 }

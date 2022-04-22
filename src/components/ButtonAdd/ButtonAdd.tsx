@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import './Style.css';
+import { AddCircle, RemoveCircle } from '@material-ui/icons';
 
 interface Props {
   max: number;
-  cantSelect?: any;
+  oneCantSelect?: any;
 }
 
-const ButtonAdd = ({ max, cantSelect }: Props) => {
+const ButtonAdd = ({ max, oneCantSelect }: Props) => {
   const [two, setTwo] = useState(false);
   const [cant, setCant] = useState(0);
-  useEffect(() => cantSelect(cant), [cant, cantSelect]);
+  useEffect(() => oneCantSelect(cant), [cant, oneCantSelect]);
 
   const handleClickAdd = () => {
     setTwo(true);
@@ -27,15 +28,15 @@ const ButtonAdd = ({ max, cantSelect }: Props) => {
     <div>
       {two && cant > 0 ? (
         <div>
-          <button className="button-add" onClick={handleClickDec}>
-            -
+          <button className="button orange" onClick={handleClickDec}>
+            <RemoveCircle />
           </button>
-          <button className="button-add" onClick={handleClickInc}>
-            +
+          <button className="button yelow" onClick={handleClickInc}>
+            <AddCircle />
           </button>
         </div>
       ) : (
-        <button className="button-add" onClick={handleClickAdd}>
+        <button className="button button-add yelow" onClick={handleClickAdd}>
           Add
         </button>
       )}
