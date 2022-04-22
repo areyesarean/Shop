@@ -1,26 +1,45 @@
-export const LOGIN_LOGOUT_ACTION = 'LOGIN_LOGOUT_ACTION';
 export const INIT_STATE = 'INIT_STATE';
-export const LOADING = 'LOADING';
-
-export const LoginLogoutAction = (value: boolean) => {
-  value
-    ? window.localStorage.setItem('isLogin', String(value))
-    : window.localStorage.removeItem('isLogin');
+export const InitState = () => {
   return {
-    type: LOGIN_LOGOUT_ACTION,
+    type: INIT_STATE,
+    payload: {
+      isLogin: Boolean(localStorage.getItem('isLogin')),
+      username: Boolean(localStorage.getItem('user')),
+    },
+  };
+};
+
+export const LOADING = 'LOADING';
+export const Loading = (value: boolean) => {
+  return {
+    type: LOADING,
     payload: value,
   };
 };
 
-export const InitState = () => {
+export const LOGIN = 'LOGIN';
+
+export const LoginAction = (username: string) => {
+  localStorage.setItem('isLogin', 'true');
+  localStorage.setItem('user', username);
   return {
-    type: INIT_STATE,
+    type: LOGIN,
+    payload: {
+      isLogin: true,
+      username,
+    },
   };
 };
+export const LOGOUT = 'LOGOUT';
 
-export const Loading = (value: boolean) => {
+export const LogoutAction = () => {
+  localStorage.removeItem('isLogin');
+  localStorage.removeItem('user');
   return {
-    type: LOADING,
-    payload: value
-  }
-}
+    type: LOGIN,
+    payload: {
+      isLogin: false,
+      username: '',
+    },
+  };
+};

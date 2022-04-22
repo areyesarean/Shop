@@ -1,11 +1,11 @@
 export const COMPRAR = 'COMPRAR';
 
-export const Comprar = () => {
+export const Comprar = (name: string, cant: number) => {
   return {
     type: COMPRAR,
     payload: {
-      name: 'pollo',
-      cant: 2,
+      name,
+      cant,
     },
   };
 };

@@ -22,23 +22,25 @@ const initialState: Product[] = [
     cant: 10,
     precio: 3.99,
   },
+  {
+    name: 'carne de cerdo',
+    cant: 4,
+    precio: 4.99,
+  }
 ];
 
-export const ProductReducer = (
-  state: Product[] = initialState,
-  action: any
-) => {
+export const ProductReducer = ( state: Product[] = initialState, action: any ) => {
   switch (action.type) {
     case COMPRAR: {
-      const dataUpdate = [...state];
+      const stateUpdate = [...state];
       const index = state.findIndex(
         (product) => product.name === action.payload.name
       );
-      dataUpdate[index] = {
+      stateUpdate[index] = {
         ...state[index],
         cant: state[index].cant - action.payload.cant,
       };
-      return [...dataUpdate];
+      return [...stateUpdate];
     }
     default:
       return state;

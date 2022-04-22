@@ -1,4 +1,7 @@
-.body{
-  background-color: #282c34;
-  font-family: 'Dank Mono';
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #282c34;    
 }

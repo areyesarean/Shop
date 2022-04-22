@@ -1,38 +1,39 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import { InitState } from './redux/Actions/actions';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
-import { Background } from './Style';
 import './App.css';
 import Loading from './components/Loading/Loading';
+import Productos from './components/Productos/Productos';
+import { LOGIN, PRODUCTOS, STORE } from './routes/path';
 
 function App() {
   const dispatch = useDispatch();
   const loading = useSelector<any>((state) => state.login.loading);
 
   useEffect(() => {
-    //Incializa el estado tomando como referencia el valor en el local storage
     dispatch(InitState());
   }, [dispatch]);
 
   return (
-    <Background>
+    <div>
       {(loading as boolean) && <Loading />}
       <Routes>
-        <Route>
-          <Route path="/" element={<PublicRoute />}>
-            <Route path="" element={<Login />} />
-          </Route>
-          <Route path="/home" element={<PrivateRoute />}>
-            <Route path="" element={<Home />} />
+        <Route path={LOGIN} element={<PublicRoute />}>
+          <Route path="" element={<Login />} />
+        </Route>
+        <Route path={STORE} element={<PrivateRoute />}>
+          <Route path="" element={<Home />}>
+            <Route path={PRODUCTOS} element={<Productos />} />
           </Route>
         </Route>
+        <Route path="*" element={<Navigate to={STORE} />} />
       </Routes>
-    </Background>
+    </div>
   );
 }
 

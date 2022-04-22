@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Formik, FormikErrors } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Loading, LoginLogoutAction } from '../../redux/Actions/actions';
+import {
+  Loading,
+  LoginAction,
+} from '../../redux/Actions/actions';
 import { ButtonSend, Container, Input, Error, AppName } from './Style';
 
 interface InitialValues {
@@ -42,7 +45,7 @@ const Login = () => {
         dispatch(Loading(false));
       } else {
         dispatch(Loading(false));
-        dispatch(LoginLogoutAction(true));
+        dispatch(LoginAction(form.username));
       }
     }, 4000);
   };

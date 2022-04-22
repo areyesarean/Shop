@@ -1,21 +1,37 @@
-import { INIT_STATE, LOGIN_LOGOUT_ACTION, LOADING } from '../Actions/actions';
+import { INIT_STATE, LOADING, LOGIN, LOGOUT } from '../Actions/actions';
 
 export interface State {
-  isLogin: boolean | null;
+  isLogin: boolean;
   loading: boolean;
+  user: string;
 }
 
 export const initialState: State = {
-  isLogin: null,
+  isLogin: Boolean(localStorage.getItem('isLogin')),
   loading: false,
+  user: localStorage.getItem('user') || '',
 };
 
 export const Reducer = (state: State = initialState, action: any) => {
   switch (action.type) {
     case INIT_STATE:
-      return { ...state, isLogin: Boolean(localStorage.getItem('isLogin')) };
-    case LOGIN_LOGOUT_ACTION:
-      return { ...state, isLogin: action.payload };
+      return {
+        ...state,
+        isLogin: action.payload.isLogin,
+        user: action.payload.username,
+      };
+    case LOGIN:
+      return {
+        ...state,
+        isLogin: action.payload.isLogin,
+        user: action.payload.username,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isLogin: action.payload.isLogin,
+        user: action.payload.username,
+      };
     case LOADING:
       return { ...state, loading: action.payload };
     default:
