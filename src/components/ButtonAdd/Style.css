@@ -1,0 +1,9 @@
+.button-add{
+  background-color: rgb(224, 144, 24);
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(224, 144, 24);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
