@@ -24,7 +24,7 @@ const Producto = ({ prod }: Props) => {
         <p>
           {name}.${precio}
         </p>
-        <ButtonAdd max={cant} oneCantSelect={handleCant} />
+        <ButtonAdd max={cant} onCantSelect={handleCant} />
       </div>
     </div>
   );

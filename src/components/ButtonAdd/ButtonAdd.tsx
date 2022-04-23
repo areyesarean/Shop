@@ -4,18 +4,20 @@ import { AddCircle, RemoveCircle } from '@material-ui/icons';
 
 interface Props {
   max: number;
-  oneCantSelect?: any;
+  onCantSelect?: any;
 }
 
-const ButtonAdd = ({ max, oneCantSelect }: Props) => {
+const ButtonAdd = ({ max, onCantSelect }: Props) => {
   const [two, setTwo] = useState(false);
   const [cant, setCant] = useState(0);
-  useEffect(() => oneCantSelect(cant), [cant, oneCantSelect]);
+
+  useEffect(() => onCantSelect(cant), [cant, onCantSelect]);
 
   const handleClickAdd = () => {
     setTwo(true);
     setCant((cant) => cant + 1);
   };
+
   const handleClickInc = () => {
     setCant((cant) => (cant + 1 > max ? cant : cant + 1));
   };

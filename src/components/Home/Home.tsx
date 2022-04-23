@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import { Loading, LogoutAction } from '../../redux/Actions/actions';
-import { PRODUCTO, PRODUCTOS } from '../../routes/path';
+import { PRODUCTOS } from '../../routes/path';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,13 +19,12 @@ const Home = () => {
 
   return (
     <div>
-      {/* Home: {isLogin ? 'true' : 'false'}
+      Home: {isLogin ? 'true' : 'false'}
       <button onClick={handleClickLogout}>Logout</button>
       <button onClick={handleClickCargando}>
         Carga ndo: {loading ? 'true' : 'false'}
       </button>
       <Link to={PRODUCTOS}>Productos</Link>
-      <Link to={PRODUCTO}>Producto</Link> */}
       <Outlet />
     </div>
   );
